@@ -8,18 +8,23 @@ What if you cannot use additional data structures?
 #include <algorithm>
 using namespace std;
 
+//use of extra data structure
+const int MAX_CHAR = 256;
+
 bool isUnique(string str)
 {
-    //sorting brute force technique
-    sort(str.begin(),str.end());
-    for (int i = 0; i <str.length() - 1; i++) {
-        // if two adjacent characters are equal, return false
-        if (str[i] == str[i + 1]) {
+    //if length is greater than 256, characters will have repeated
+    if (str.length() > 256) {
+        return false;
+    }
+    bool chars[MAX_CHAR] = { 0 };
+    for (int i = 0; i < str.length(); i++) {
+        if (chars[int(str[i])] == true) {
             return false;
         }
+        chars[int(str[i])] = true;
     }
     return true;
-
 }
 
 int main()
