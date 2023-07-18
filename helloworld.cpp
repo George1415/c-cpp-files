@@ -5,24 +5,21 @@ What if you cannot use additional data structures?
 */
 
 #include <iostream>
-#include <algorithm>
 using namespace std;
-
-//use of extra data structure
-const int MAX_CHAR = 256;
 
 bool isUnique(string str)
 {
-    //if length is greater than 256, characters will have repeated
-    if (str.length() > 256) {
-        return false;
-    }
-    bool chars[MAX_CHAR] = { 0 };
+    // 32 bits set to zero
+    int checker = 0;
     for (int i = 0; i < str.length(); i++) {
-        if (chars[int(str[i])] == true) {
+        int BitAtIndex = int(str[i]) - 'a';
+        
+        // if that bit is already set in counter return false
+        if ((checker & (1 << BitAtIndex)) > 0) {
             return false;
         }
-        chars[int(str[i])] = true;
+        // else update checker
+        checker = checker | (1 << BitAtIndex);
     }
     return true;
 }
