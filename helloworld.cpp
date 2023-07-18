@@ -5,20 +5,21 @@ What if you cannot use additional data structures?
 */
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 bool isUnique(string str)
 {
-    //if at any time we encounter 2 same characters return false
-    for (int i = 0; i < str.length() - 1; i++) {
-        for (int j = i + 1; j < str.length(); j++) {
-            if (str[i] == str[j]) {
-                return false;
-            }
+    //sorting brute force technique
+    sort(str.begin(),str.end());
+    for (int i = 0; i <str.length() - 1; i++) {
+        // if two adjacent characters are equal, return false
+        if (str[i] == str[i + 1]) {
+            return false;
         }
     }
-    // if no duplicate character encountered return true
     return true;
+
 }
 
 int main()
