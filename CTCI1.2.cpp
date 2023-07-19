@@ -44,5 +44,5 @@ int main()
     else {   
         cout << "The string " << str1 << " isn't a permutation of " << str2 << "\n";
     }
-
+    return 0;
 }

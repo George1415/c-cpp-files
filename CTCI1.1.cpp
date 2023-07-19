@@ -34,5 +34,5 @@ int main()
     else {
         cout << "The string " << str << " has duplicated characters\n";
     }
-
+    return 0;
 }
