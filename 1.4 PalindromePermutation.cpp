@@ -35,5 +35,6 @@ int main()
     PalindromePermutation(str)
     ? cout << str << " is a permutation of a palindrome\n"
     : cout << str << " is not a permutation of a palindrome\n";
+    return 0;
 }
 
