@@ -17,6 +17,40 @@ bool OneAway (string str1, string str2)
     if (abs(length1-length2) > 1)
         return false;
 
+    // count number of edits
+    int count = 0;
+
+    int i = 0, j = 0;
+    while(i < length1 && j < length2)
+    {
+        if (str1[i] != str2[j])
+        {
+            if (count == 1)
+                return false;
+            
+            // if length of one string is more then insertion/deletion occured
+            if (length1 > length2)
+                i++;
+            else if (length2 > length1)
+                j++;
+            else
+            {
+                i++;
+                j++;
+            }
+            // increment count
+            count++;
+
+        }
+        else
+        {
+            i++;
+            j++;
+        }
+    }
+    if (i < length1 || j < length2)
+        count++;
+ 
     return true;
 }
 
