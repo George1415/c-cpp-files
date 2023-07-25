@@ -7,7 +7,19 @@ an integer,write a method to rotate the image by
 #include <iostream>
 using namespace std;
 
-int RotateMatrix (int array[][3])
+int RotateArray (int array[][3])
+{
+    
+    return 0;
+}
+
+
+
+
+
+
+
+int OutputArray (int array[][3])
 {
 	int i,j;
     for(i=0;i<3;i++)
@@ -18,13 +30,13 @@ int RotateMatrix (int array[][3])
 		}
 		cout<<endl;
 	}
-
+    return 0;
 }
 
 int main( ) 
 {  
 	int array[3][3] = {1,2,3,4,5,6,7,8,9} ;
-    RotateMatrix(array);
+    OutputArray(array);
 		
 	
 	
