@@ -36,8 +36,8 @@ void setZeros(int** arr, int n)
     for (int i = 1; i < n; i++) {
         for (int j = 1; j < n; j++) {
             if (arr[i][j] == 0) {
-                arr[i][0] == 0;
-                arr[0][j] == 0;
+                arr[i][0] = 0;
+                arr[0][j] = 0;
             }
         }
     }
@@ -76,7 +76,7 @@ void outputArray(int** arr, int n)
 int main()
 {
     int n = 5;
-    int count = 0;
+    int count = -6;
     // Dynamically allocate memory for the 2D array
     int** myArray = new int*[n];
     for (int i = 0; i < n; ++i) {
