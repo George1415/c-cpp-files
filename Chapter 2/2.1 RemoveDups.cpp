@@ -3,6 +3,7 @@ c++ Program to remove duplicates in an unsorted
 linked list
 */
 #include <iostream>
+#include <unordered_set>
 using namespace std;
 
 // a linked list node
@@ -23,25 +24,23 @@ struct Node* newNode(int data)
 // function ro remove duplicates
 void removeDuplicates(struct Node* start)
 {
-    struct Node *ptr1, *ptr2, *dup;
-    ptr1 = start;
- 
-    // Pick elements one by one
-    while (ptr1 != NULL && ptr1->next != NULL) {
-        ptr2 = ptr1;
- 
-        // Compare it to the rest of the elements
-        while (ptr2->next != NULL) {
-            // If duplicate then delete it
-            if (ptr1->data == ptr2->next->data) {
-                dup = ptr2->next;
-                ptr2->next = ptr2->next->next;
-                delete (dup);
-            }
-            else
-                ptr2 = ptr2->next;
+    //hash to store seen values
+    unordered_set<int> seen;
+
+    // pick elements one by one
+    struct Node* curr = start;
+    struct Node* prev = NULL;
+    while (curr != NULL) {
+        // if current values is seen before
+        if (seen.find(curr->data) != seen.end()) {
+            prev->next = curr->next;
+            delete (curr);
         }
-        ptr1 = ptr1->next;
+        else {
+            seen.insert(curr->data);
+            prev = curr;
+        }
+        curr = prev->next;
     }
 }
 
